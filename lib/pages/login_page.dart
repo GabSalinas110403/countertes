@@ -8,7 +8,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -22,26 +21,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class Fondo extends StatefulWidget {
+class Fondo extends StatelessWidget {
   const Fondo({super.key});
 
-  @override
-  State<Fondo> createState() => _FondoState();
-}
-
-class _FondoState extends State<Fondo> {
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
+          begin: Alignment.centerRight,
+          end: Alignment.centerLeft,
           colors: [
             Colors.blue.shade300,
-            Colors.blue
+            Colors.blue,
           ],
-          begin: Alignment.centerRight,
-          end: Alignment.centerLeft
-        )
+        ),
       ),
     );
   }
@@ -66,24 +60,17 @@ class _ContenidoState extends State<Contenido> {
           Text(
             'Login',
             style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              letterSpacing: 2.5
-            ),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 5),
           Text(
             'Bienvenido a tu cuenta',
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              letterSpacing: 1.5
-            ),
+                color: Colors.white, fontSize: 18, letterSpacing: 1.5),
           ),
-          Datos()
+          Datos(),
         ],
-      )
+      ),
     );
   }
 }
@@ -104,41 +91,40 @@ class _DatosState extends State<Datos> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Correo',
+            'Email',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 15
-              ),
+              fontSize: 20,
             ),
-            const SizedBox(height: 5,),
-            TextFormField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
+          ),
+          const SizedBox(height: 5),
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: ('micorreo@micorreo.com'),
-              ),
-            ),
-            const Text(
-            'Contraseña',
+                hintText: 'micorreo@micorreo.com'),
+          ),
+          const SizedBox(height: 5),
+          const Text(
+            'Password',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 15
-              ),
+              fontSize: 20,
             ),
-            const SizedBox(height: 5,),
-            TextFormField(
-              obscureText: true,
-              decoration: InputDecoration(
+          ),
+          const SizedBox(height: 5),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
                 border: const OutlineInputBorder(),
-                hintText: ('contraseña'),
+                hintText: 'contraseña',
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.remove_red_eye_outlined),
-                  onPressed: () => {},
-                ),
-              ),
-            ),
+                  onPressed: () {},
+                )),
+          )
         ],
       ),
     );
