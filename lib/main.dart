@@ -3,6 +3,10 @@ import 'package:countertes/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+
+
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -14,6 +18,8 @@ void main() async {
     authDomain: 'autenticacion-49b79.firebaseapp.com',
     storageBucket: 'autenticacion-49b79.appspot.com',
   ));
+
+  
   runApp(const MyApp());
 }
 

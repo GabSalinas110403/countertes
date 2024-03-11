@@ -1,3 +1,4 @@
+import 'package:countertes/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,25 +11,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int cont = 0;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Bienvenido c:"),
-      ),
-      body: Center(
-          child: Column(
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      centerTitle: true,
+      title: const Text("Bienvenido c:"),
+    ),
+    body: Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text("Numero de clicks"),
           Text("$cont"),
         ],
-      )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: _crearBotones(),
-    );
-  }
+      ),
+    ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    floatingActionButton: _crearBotones(),
+  );
+}
+
 
   Widget _crearBotones() {
     return Padding(
@@ -36,6 +39,7 @@ class _HomePageState extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          
           FloatingActionButton(
             child: const Icon(Icons.add),
             onPressed: () => _sumar(),
@@ -43,6 +47,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             width: 10,
           ),
+
           FloatingActionButton(
             child: const Icon(Icons.remove),
             onPressed: () => _restar(),
@@ -50,10 +55,25 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             width: 10,
           ),
+
           FloatingActionButton(
             child: const Icon(Icons.exposure_zero),
             onPressed: () => _reset(),
-          )
+          ),
+
+          FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginPage(),
+              ),
+            );
+          },
+          child: const Icon(Icons.backspace),
+          
+          ),
+
         ],
       ),
     );
